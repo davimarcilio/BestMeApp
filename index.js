@@ -15,8 +15,24 @@ process.stdin.on('data', data => {
     if (answers.length < questions.length) {
         ask(answers.length);
     } else {
-        console.log(answers);
         process.exit();
     }
+})
+process.on('exit', () => {
+    console.log(`
+    Bacana Davi!
 
+    O que você aprendeu hoje foi:
+    ${answers[0]}
+
+    O que te aborreceu e você poderia melhorar foi:
+    ${answers[1]}
+
+    O que te deixou feliz hoje:
+    ${answers[2]}
+
+    Você ajudou ${answers[3]} pessoas hoje!!
+
+    Volte amanhã para novas reflexões
+    `);
 })
